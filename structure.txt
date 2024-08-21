@@ -1,0 +1,63 @@
+/project-root
+│
+├── /public
+│   ├── index.html           # Main HTML file
+│   └── assets               # Static assets (images, fonts, etc.)
+│
+├── /src                     # Source code
+│   ├── /assets              # Non-component specific assets (images, styles, etc.)
+│   │   ├── /images
+│   │   └── /styles
+│   │       ├── main.css     # Global styles
+│   │       └── variables.css# CSS variables or SCSS
+│   │
+│   ├── /components          # Reusable components
+│   │   ├── /Button
+│   │   │   ├── Button.js
+│   │   │   ├── Button.css
+│   │   │   └── Button.test.js
+│   │   └── /Header
+│   │       ├── Header.js
+│   │       ├── Header.css
+│   │       └── Header.test.js
+│   │
+│   ├── /hooks               # Custom React hooks
+│   │   └── useCustomHook.js
+│   │
+│   ├── /pages               # Page components (usually tied to routes)
+│   │   ├── /Home
+│   │   │   ├── Home.js
+│   │   │   ├── Home.css
+│   │   │   └── Home.test.js
+│   │   └── /About
+│   │       ├── About.js
+│   │       ├── About.css
+│   │       └── About.test.js
+│   │
+│   ├── /context             # Context API providers and related files
+│   │   └── UserContext.js
+│   │
+│   ├── /utils               # Utility functions and helpers
+│   │   └── api.js           # Example utility file
+│   │
+│   ├── /services            # External API services and logic
+│   │   └── authService.js
+│   │
+│   ├── /store               # Redux (or other state management) related files
+│   │   ├── store.js
+│   │   └── reducers.js
+│   │
+│   ├── /config              # Configuration files (e.g., API keys)
+│   │   └── apiConfig.js
+│   │
+│   ├── /tests               # Global test utilities
+│   │   └── setupTests.js
+│   │
+│   ├── /App.js              # Main application component
+│   ├── /index.js            # Entry point for the application
+│   └── /reportWebVitals.js  # Web vitals reporting
+│
+├── .env                     # Environment variables
+├── .gitignore               # Git ignore file
+├── package.json             # NPM dependencies and scripts
+└── README.md                # Project documentation
