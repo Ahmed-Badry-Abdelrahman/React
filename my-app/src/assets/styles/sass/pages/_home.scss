@@ -1,0 +1,17 @@
+@use '../variable/_index.scss' as *;
+
+.bg_dark {
+    background-color: $dark;
+}
+
+.bg_primary {
+    background-color: $primary;
+}
+
+.p_3 {
+    padding: 10px;
+}
+
+.text_light {
+    color: $light;
+}
