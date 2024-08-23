@@ -8,7 +8,7 @@ export const GetPosts = () => {
   }, []);
 
   const fetchPosts = async () => {
-    const url = "https://jsonplaceholder.typicode.com/posts";
+    const url = "https://jsonplaceholder.typicode.com/posts/10/comments";
 
     try {
       const response = await fetch(url);
@@ -37,8 +37,10 @@ export const GetPosts = () => {
         {posts.map((post) => {
           return (
             <li key={post.id}>
-              <h1>{post.title}</h1>
+              <h1>{post.userId}</h1>
+              <h5>{post.title}</h5>
               <p>{post.body}</p>
+              <hr />
             </li>
           );
         })}
