@@ -3,13 +3,21 @@
 // import { GetPosts } from "./components/GetPosts";
 // import { ListDisplay } from "./components/ListDisplay";
 
-import { Counter } from "./components/counter";
+import { FullName } from "./components/useState/FullName";
+
+// import { Counter } from "./components/useState/counter";
+
+// import { Counter } from "./components/useState/Counter";
 
 // import { PostPosts } from "./components/PostPosts";
 function App() {
+  const style = {
+    display: "flex",
+    justifyContent: "center",
+  };
   return (
-    <div className="App">
-      <Counter />
+    <div className="App" style={style}>
+      <FullName />
     </div>
   );
 }
