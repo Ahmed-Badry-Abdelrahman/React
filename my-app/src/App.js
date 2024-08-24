@@ -1,7 +1,4 @@
-// import { HookOne } from "./components/useEffect/HookOne";
-
-import { FetchData } from "./components/useEffect/fetch";
-import { GetData } from "./components/useEffect/GetBtn";
+import UploadPost from "./components/TestAPI/UploadPost";
 function App() {
   const style = {
     display: "flex",
@@ -10,7 +7,7 @@ function App() {
 
   return (
     <div className="App" style={style}>
-      <GetData />
+      <UploadPost />
     </div>
   );
 }
