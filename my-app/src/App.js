@@ -1,7 +1,7 @@
 // import { HookOne } from "./components/useEffect/HookOne";
-import HookTwo from "./components/useEffect/HookTwo";
-import IntervalCounter from "./components/useEffect/intervalCounter";
-import MouseOver from "./components/useEffect/Mous";
+
+import { FetchData } from "./components/useEffect/fetch";
+import { GetData } from "./components/useEffect/GetBtn";
 function App() {
   const style = {
     display: "flex",
@@ -10,7 +10,7 @@ function App() {
 
   return (
     <div className="App" style={style}>
-      <MouseOver />
+      <GetData />
     </div>
   );
 }
