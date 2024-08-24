@@ -1,23 +1,18 @@
-// import { ListDisplay } from "./components/Lists";
-// import { Form } from "./components/Form";
-// import { GetPosts } from "./components/GetPosts";
-// import { ListDisplay } from "./components/ListDisplay";
-
-// import { FullName } from "./components/useState/FullName";
-
-// import { Counter } from "./components/useState/counter";
-
-// import { Counter } from "./components/useState/Counter";
-
-// import { PostPosts } from "./components/PostPosts";
-
-// import { AddNumber } from "./components/useState/AddNumber";
+// import { HookOne } from "./components/useEffect/HookOne";
+import HookTwo from "./components/useEffect/HookTwo";
+import IntervalCounter from "./components/useEffect/intervalCounter";
+import MouseOver from "./components/useEffect/Mous";
 function App() {
   const style = {
     display: "flex",
     justifyContent: "center",
   };
-  return <div className="App" style={style}></div>;
+
+  return (
+    <div className="App" style={style}>
+      <MouseOver />
+    </div>
+  );
 }
 
 export default App;
