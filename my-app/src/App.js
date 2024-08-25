@@ -1,4 +1,4 @@
-import UploadPost from "./components/TestAPI/UploadPost";
+import CounterOne from "./components/useReducer/CounterOne";
 function App() {
   const style = {
     display: "flex",
@@ -7,7 +7,7 @@ function App() {
 
   return (
     <div className="App" style={style}>
-      <UploadPost />
+      <CounterOne />
     </div>
   );
 }

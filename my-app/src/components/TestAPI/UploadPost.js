@@ -30,6 +30,7 @@ const UploadPost = () => {
       if (!title || !body || !userId) {
         throw new Error("Please enter all fields");
       }
+
       const response = await axios.post(url, data, config);
       console.log(response.data);
       setPost(response.data);
