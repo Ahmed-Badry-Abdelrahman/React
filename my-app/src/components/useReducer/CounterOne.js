@@ -1,95 +1,80 @@
 import { useReducer } from "react";
 
-const initialState = {
-  counterOne: 0,
-  counterTow: 0,
-  counterThree: 0,
-};
+const initialState = 0;
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case "incrementCountOne":
-      return { ...state, counterOne: state.counterOne + action.value };
-    case "incrementCountTow":
-      return { ...state, counterTow: state.counterTow + action.value };
-    case "incrementCountThree":
-      return { ...state, counterThree: state.counterThree + action.value };
-    case "incrementAll":
-      return {
-        ...state,
-        counterOne: state.counterOne + action.value,
-        counterTow: state.counterTow + action.value,
-        counterThree: state.counterThree + action.value,
-      };
+    case "increment":
+      return state + action.value;
     case "reset":
       return initialState;
+    case "incrementAll":
+      return state + action.value;
     default:
       return state;
   }
 };
 const CounterOne = () => {
-  const [count, dispatch] = useReducer(reducer, initialState);
+  const [countOne, dispatchOne] = useReducer(reducer, initialState);
+  const [countTow, dispatchTow] = useReducer(reducer, initialState);
+  const [countThree, dispatchThree] = useReducer(reducer, initialState);
   return (
     <div>
       <div>
-        <h1>Counter One :- {count.counterOne}</h1>
-        <h1>Counter Tow :- {count.counterTow}</h1>
-        <h1>Counter Three :- {count.counterThree}</h1>
+        <h1>Counter One :- {countOne}</h1>
+        <h1>Counter Tow :- {countTow}</h1>
+        <h1>Counter Three :- {countThree}</h1>
       </div>
       <div>
-        <button
-          onClick={() => dispatch({ type: "incrementCountOne", value: 1 })}
-        >
+        <button onClick={() => dispatchOne({ type: "increment", value: 1 })}>
           increment by 1
         </button>
-        <button
-          onClick={() => dispatch({ type: "incrementCountOne", value: 5 })}
-        >
+        <button onClick={() => dispatchOne({ type: "increment", value: 5 })}>
           increment by 5
         </button>
-        <button
-          onClick={() => dispatch({ type: "incrementCountOne", value: 10 })}
-        >
+        <button onClick={() => dispatchOne({ type: "increment", value: 10 })}>
+          increment by 10
+        </button>
+      </div>
+      <div>
+        <button onClick={() => dispatchTow({ type: "increment", value: 1 })}>
+          increment by 1
+        </button>
+        <button onClick={() => dispatchTow({ type: "increment", value: 5 })}>
+          increment by 5
+        </button>
+        <button onClick={() => dispatchTow({ type: "increment", value: 10 })}>
+          increment by 10
+        </button>
+      </div>
+      <div>
+        <button onClick={() => dispatchThree({ type: "increment", value: 1 })}>
+          increment by 1
+        </button>
+        <button onClick={() => dispatchThree({ type: "increment", value: 5 })}>
+          increment by 5
+        </button>
+        <button onClick={() => dispatchThree({ type: "increment", value: 10 })}>
           increment by 10
         </button>
       </div>
       <div>
         <button
-          onClick={() => dispatch({ type: "incrementCountTow", value: 1 })}
+          onClick={() => {
+            dispatchOne({ type: "reset" });
+            dispatchTow({ type: "reset" });
+            dispatchThree({ type: "reset" });
+          }}
         >
-          increment by 1
+          reset
         </button>
         <button
-          onClick={() => dispatch({ type: "incrementCountTow", value: 5 })}
+          onClick={() => {
+            dispatchOne({ type: "incrementAll", value: 5 });
+            dispatchTow({ type: "incrementAll", value: 5 });
+            dispatchThree({ type: "incrementAll", value: 5 });
+          }}
         >
-          increment by 5
-        </button>
-        <button
-          onClick={() => dispatch({ type: "incrementCountTow", value: 10 })}
-        >
-          increment by 10
-        </button>
-      </div>
-      <div>
-        <button
-          onClick={() => dispatch({ type: "incrementCountThree", value: 1 })}
-        >
-          increment by 1
-        </button>
-        <button
-          onClick={() => dispatch({ type: "incrementCountThree", value: 5 })}
-        >
-          increment by 5
-        </button>
-        <button
-          onClick={() => dispatch({ type: "incrementCountThree", value: 10 })}
-        >
-          increment by 10
-        </button>
-      </div>
-      <div>
-        <button onClick={() => dispatch({ type: "reset" })}>reset</button>
-        <button onClick={() => dispatch({ type: "incrementAll", value: 5 })}>
           increment All by 5
         </button>
       </div>
