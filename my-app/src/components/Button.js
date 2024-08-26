@@ -1,11 +1,9 @@
 import React from "react";
 
-const Button = ({ label }) => {
+export const Button = React.memo(({ number, onClick, children }) => {
   return (
     <div>
-      <button>{label}</button>
+      <button onClick={() => onClick(number)}>{children}</button>
     </div>
   );
-};
-
-export default Button;
+});
