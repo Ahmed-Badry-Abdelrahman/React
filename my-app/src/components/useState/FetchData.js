@@ -29,7 +29,7 @@ const DisplayPosts = () => {
     const fetchData = async () => {
       setLoading(true);
       setError(null);
-      const url = `https://jsonplaceholder.typicode.com/photos?_page=${page}&_limit=20`;
+      const url = `https://jsonplaceholder.typicode.com/photos?_page=${page}&_limit=10`;
       try {
         const response = await axios.get(url);
         setLoading(false);
@@ -64,9 +64,7 @@ const DisplayPosts = () => {
     <div style={container}>
       {loading && <p>Loading...</p>}
       {error && <p>{error}</p>}
-      {!loading &&
-        !error &&
-        posts.length > 0 &&
+      {posts.length > 0 &&
         posts.map((post) => {
           return (
             <div key={post.id} style={imgStyle}>

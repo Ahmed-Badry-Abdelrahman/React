@@ -1,14 +1,22 @@
-import FetchPosts from "./components/useReducer/FetchData";
-import DisplayPosts from "./components/useState/FetchData";
+import React, { useState } from "react";
+import Button from "./components/Button";
 function App() {
+  const [count, setCount] = useState(0);
+  console.log("App rendered");
+
   const style = {
+    backgroundColor: "#eee",
     display: "flex",
+    flexDirection: "column",
     justifyContent: "center",
+    alignItems: "center",
+    margin: "20px",
   };
 
   return (
     <div className="App" style={style}>
-      <DisplayPosts />
+      <p>{count}</p>
+      <Button />
     </div>
   );
 }
