@@ -1,5 +1,4 @@
-import FetchData from "./components/FetchData";
-import Fetch2 from "./components/Fetch2";
+import Counter from "./components/useMemo/Counter";
 function App() {
   const style = {
     backgroundColor: "#eee",
@@ -13,8 +12,7 @@ function App() {
 
   return (
     <div className="App" style={style}>
-      <FetchData />
-      <Fetch2 />
+      <Counter />
     </div>
   );
 }

@@ -1,51 +1,35 @@
-import React, { useCallback, useMemo, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 
 const Counter = () => {
-  console.log("render");
   const [countOne, setCountOne] = useState(0);
-  const [countTow, setCountTow] = useState(0);
-  const [countThree, setCountThree] = useState(0);
+  const [dark, setDark] = useState(true);
 
   const counterOne = () => {
     setCountOne(countOne + 1);
-    console.log("render => from 1");
+    console.log("render => from counter  1");
   };
 
-  const counterTow = () => {
-    setCountTow(countTow + 1);
-    console.log("render => from 2");
-  };
+  const themes = useMemo(() => {
+    return {
+      backgroundColor: dark ? "black" : "white",
+      color: dark ? "white" : "black",
+    };
+  }, [dark]);
 
-  const counterThree = () => {
-    setCountThree(countThree + 1);
-    console.log("render => from 3");
-  };
+  useEffect(() => {
+    console.log("themes re-render");
+  }, [themes]);
 
-  //   const isEven = useCallback(() => {
-  //     let i = 0;
-  //     while (i < 2000000000) i++;
-  //     return countOne % 2 === 0;
-  //   }, []);
-
-  //   console.log(isEven);
-  const isEven = useMemo(() => {
-    let i = 0;
-    while (i < 2000000000) i++;
-    return countOne % 2 === 0;
-  }, [countOne]);
-
-  console.log(isEven);
   return (
     <div>
       <div>
         <button onClick={counterOne}>Count One -- {countOne}</button>
-        <span>{isEven ? "Even" : "Odd"}</span>
       </div>
       <div>
-        <button onClick={counterTow}>Count Tow -- {countTow}</button>
+        <button onClick={() => setDark((prev) => !prev)}> change theme </button>
       </div>
-      <div>
-        <button onClick={counterThree}>Count Three -- {countThree}</button>
+      <div style={{ backgroundColor: themes.backgroundColor }}>
+        <p style={{ color: themes.color }}>test {countOne}</p>
       </div>
     </div>
   );
