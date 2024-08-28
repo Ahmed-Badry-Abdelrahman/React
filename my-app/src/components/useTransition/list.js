@@ -1,35 +1,21 @@
-import React, { useState, useTransition } from "react";
+import React, { useDeferredValue, useEffect, useMemo, use } from "react";
 
-const List = () => {
-  const [input, setInput] = useState("");
-  const [isPending, startTransition] = useTransition();
-  const [list, setList] = useState([]);
+const List = ({ input }) => {
+  const deferredInput = useDeferredValue(input);
 
-  const onChange = (e) => {
-    const newValue = e.target.value;
-    setInput(newValue); // Update input state
+  const listItems = useMemo(() => {
+    const items = [];
+    for (let i = 0; i < 100; i++) {
+      items.push(<p key={i}>{deferredInput}</p>);
+    }
+    return items;
+  }, [deferredInput]);
 
-    // Start transition for updating the list
-    startTransition(() => {
-      const l = [];
-      for (let i = 0; i < 1000; i++) {
-        l.push(newValue);
-      }
-      console.log(l);
-      setList(l);
-    });
-  };
+  useEffect(() => {
+    console.log(`input: ${input} \n deferredInput: ${deferredInput}`);
+  }, [input, deferredInput]);
 
-  return (
-    <div>
-      <input onChange={onChange} value={input} />
-      {isPending ? (
-        <p>Loading...</p>
-      ) : (
-        list.map((item, index) => <p key={index}>{item}</p>)
-      )}
-    </div>
-  );
+  return <div>{listItems}</div>;
 };
 
 export default List;

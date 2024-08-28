@@ -1,9 +1,10 @@
-import List from "./components/useTransition/list";
+import A from "./components/A";
+
 function App() {
   const style = {
     backgroundColor: "#eee",
     display: "flex",
-    // flexDirection: "column",
+    flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
     margin: "20px",
@@ -12,7 +13,7 @@ function App() {
 
   return (
     <div className="App" style={style}>
-      <List />
+      <A />
     </div>
   );
 }

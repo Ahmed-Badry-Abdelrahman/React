@@ -1,12 +1,24 @@
-import React, { useContext } from "react";
-import CountContext from "../context/ThemeContext";
+import B from "./B";
+import React, { useRef, createContext } from "react";
+export const refContext = createContext();
+
 const A = () => {
-  const { count, dispatch } = useContext(CountContext);
+  const inputRef = useRef();
+  const pRef = useRef();
+  const focus = () => {
+    if (inputRef.current) {
+      inputRef.current.focus();
+      pRef.current.style.color = "red";
+    }
+  };
+
   return (
     <div>
-      <h1>Count:- {count}</h1>
-      <button onClick={() => dispatch("INCREMENT")}>INCREMENT</button>
-      <button onClick={() => dispatch("DECREMENT")}>DECREMENT</button>
+      <refContext.Provider value={{ inputRef, pRef }}>
+        <B />
+      </refContext.Provider>
+
+      <button onClick={focus}>Focus</button>
     </div>
   );
 };
