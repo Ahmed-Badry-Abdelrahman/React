@@ -7,16 +7,18 @@ const Fetch2 = () => {
   return (
     <div>
       <p>Data2</p>
+      {!data && <p>Loading...</p>}
       {error && <p>Error: {error}</p>}
-      {data.map((item) => {
-        return (
-          <div key={item.id}>
-            <h1>{item.name}</h1>
-            <h5>{item.email}</h5>
-            <p>{item.address.street}</p>
-          </div>
-        );
-      })}
+      {data &&
+        data.map((item) => {
+          return (
+            <div key={item.id}>
+              <h1>{item.name}</h1>
+              <h5>{item.email}</h5>
+              <p>{item.address.street}</p>
+            </div>
+          );
+        })}
     </div>
   );
 };
