@@ -1,4 +1,4 @@
-import Counter from "./components/useMemo/Counter";
+import List from "./components/useTransition/list";
 function App() {
   const style = {
     backgroundColor: "#eee",
@@ -12,7 +12,7 @@ function App() {
 
   return (
     <div className="App" style={style}>
-      <Counter />
+      <List />
     </div>
   );
 }
